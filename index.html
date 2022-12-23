@@ -21,7 +21,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">ZOFLABS</a>
+            <a class="navbar-brand" href="#"><img src="assets/z_labs.png" width="100px" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,8 +40,9 @@
                     <div class="col-12 text-center">
                         <img src="assets/z_labs.png" width="20%" class="rounded mx-auto d-block" alt="">
 
-                        <h1 class="fw-light"><b>Busqueda concentrada de URL by<b><a href="https://www.smartekh.com/"></a>
-                                        smartekh</a></b> </h1>
+                        <h1 class="fw-light"><b>Busqueda concentrada de URL by<b><a
+                                        href="https://www.smartekh.com/"></a>
+                                    smartekh</a></b> </h1>
                         <p class="lead"> </p>
                         <p class="lead"> <b>El objetivo de este sitio es facilitar al usuario la busqueda de URL de
                                 diferentes dominios en uno</b></p>
@@ -56,9 +57,9 @@
                         </div>
 
 
-                      
-                           
-                            
+
+
+
 
                     </div>
                 </div>
@@ -69,11 +70,43 @@
     <div class="container Respuesta">
 
         <div class="row">
+
+            <div class="col-md-12">
+
+                <div id="maluno"></div>
+            </div>
             <div class="col-md-4">
-                                
+
                 <div class="contenedorvirust"></div>
-            
-        </div>
+                <div id="paisc"></div> <br> 
+                <div id="isponex"></div> <br>
+                <div id="ofus"></div>
+                
+                
+
+            </div>
+            <div class="col-md-4">
+                <div class="contenedorvirusdos"></div>
+                <div id="dominiodos"></div> <br>
+                <div id="ispone"></div>
+                <div id="ipdosxd"></div>
+              
+              
+
+
+
+
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="contenedorvirustres"></div>
+                <div id="dominio"></div> <br>
+
+                <div id="score"></div>
+                <div id="dominioatx"></div>
+                
+            </div>
 
         </div>
     </div>
@@ -90,15 +123,14 @@
 
 
                 <!-- Facebook -->
-                <a class="btn btn-link btn-floating btn-lg text-dark m-1"
-                    href="https://www.facebook.com/ZOFLabs-107239410717424" role="button"
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.facebook.com/" role="button"
                     data-mdb-ripple-color="dark"><i class="fab fa-facebook-f" style="color: white;"></i></a>
 
 
 
 
                 <!-- Instagram -->
-                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/zoflabs/"
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/"
                     role="button" data-mdb-ripple-color="dark"><i class="fab fa-instagram"
                         style="color: white;"></i></a>
 
@@ -111,8 +143,8 @@
 
         <!-- Copyright -->
         <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2021 Copyright:
-            <a class="text-white" href="https://zoflabs.com/">zoflabs.com</a>
+            © 2022 Copyright:
+            <a class="text-white" href="https://smartekh.com/">smartekh.com</a>
 
 
 
@@ -154,8 +186,19 @@
 
 
 
-    document.getElementById("activabtnip").addEventListener("click", virustotal);
+    document.getElementById("activabtnip").addEventListener("click", ejecuta);
+
+
     const aplicacion = document.querySelector(".contenedorvirust"); //se hace la referencia en donde vendrá todo el pedo 
+    const aplicacionuno = document.querySelector(".contenedorvirusdos");
+
+    const aplicaciondos = document.querySelector(".contenedorvirustres");
+
+    function ejecuta() {
+        virustotal();
+        abuse();
+        alienfetch();
+    }
 
     function virustotal() {
 
@@ -163,7 +206,7 @@
 
 
         var myHeaders = new Headers();
-        myHeaders.append("X-Apikey", "ajkhjskah");
+        myHeaders.append("X-Apikey", "d885a9806fb9a028c5cc0d85624b0c140cba58a0fff7227a986d6d2dee8237a9");
 
         var requestOptions = {
             method: 'GET',
@@ -171,7 +214,7 @@
             redirect: 'follow'
         };
 
-        fetch("https://www.virustotal.com/api/v3/ip_addresses/" + ipbusqueda, requestOptions)
+        fetch("https://cors-anywhere.herokuapp.com/https://www.virustotal.com/api/v3/ip_addresses/" + ipbusqueda, requestOptions)
             .then(respuesta => respuesta.json())
             .then(datos => {//haciendo iteracion
 
@@ -180,75 +223,153 @@
                 let pais = datos['data']['attributes']['country']
 
                 let prop = (datos['data']['attributes']['as_owner']);
-                let es = (datos['data']['attributes']['whois']);
+                let es = (datos['data']['attributes']['network']);
+                let maligno = (datos['data']['attributes']['last_analysis_results']['Bkav']['method']);
 
                 //imprimiendo usuario en pantalla
-                const p = document.createElement('p');
 
 
-                p.innerHTML = ' <div class="card" style="width: 18rem;">'+
-                                    +'<div class="card-body">'+
-                                '<img class="img rounded d-block" src="assets/VirusTotal-nuevo-logo-2493322606.png" width="50%" alt="Card image cap">'+
-                                        '<h2 class=texto-exp"> "' + pais + '" </h2>'+
-                    + ' <p  class="texto-exp">"' + prop + '"</p>'+
-                    + ' <p  class="texto-exp">"' + es + '"</p>'+
-
-                                   ' </div>'+
-                               ' </div>'
-
-
-               
-
-
-
-
-
-                aplicacion.appendChild(p)
-
-
-
-                /*let string1 = "";
-                let string2 = "";
-
-
-                for (let property1 in datos) {
-                    string1 += datos[property1];
-                }
-
-                Object.values(datos).forEach(item => { string2 += item });
-
-                console.log(string1);
-
-
-                datos.forEach(respuestaxd => {
-                    console.log(datos);
-
-                    //imprimiendo usuario en pantalla
-                    const p = document.createElement('p');
-                   
                  
+                let paism = document.getElementById('paisc');
+                paism.innerHTML = 'pais: ' + pais;
+
+                let propow = document.getElementById('isponex');
+                propow.innerHTML = 'Dominio: ' + prop;
+
+
+                let esofu = document.getElementById('ofus');
+                esofu.innerHTML = 'IP: '+ es;
+
+                let mal = document.getElementById('maluno');
+
+                mal.innerHTML = 'estatus: '+ maligno;
 
 
 
-                    p.innerHTML = '<h2 class="titulo"> "' + respuestaxd.country + '" </h2>'
-                        + ' <p  class="texto-exp">"' + respuestaxd.network + '"</p>' 
-
-
-
-
-                    aplicacion.appendChild(p)
-
-                    console.log(respuestaxd);
-
-                });
-*/
+                
+                                const p = document.createElement('p');
+                
+                                p.innerHTML = '<h2>Virus total :</h2> <br><img src="assets/VirusTotal-nuevo-logo-2493322606.png" width="80%" class="rounded mx-auto d-block" alt="">'
+                
+                
+                
+                
+                
+                
+                
+                                aplicacion.appendChild(p)
+                
+                
 
 
             }).catch(error => console.log("error 1 en fetch" + error))
 
-        //.then(result => console.log(result)) 
-        //.catch(error => console.log('error', error));
 
+
+
+
+    }
+
+
+
+
+    function abuse() {
+
+        let ipbusqueda = document.getElementById("ipsearch").value;
+
+
+        var myHeader = new Headers();
+        myHeader.append("key", "6415fee99d33ccbe870e9ef80414b83c056b0bbcc8e54fdaad727007ae768b3ef0605e9814b6f44c");
+
+        var requestOptionss = {
+            method: 'GET',
+            headers: myHeader,
+            redirect: 'follow'
+        };
+
+        fetch("https://cors-anywhere.herokuapp.com/https://api.abuseipdb.com/api/v2/check?ipAddress=" + ipbusqueda, requestOptionss)
+            .then(response => response.json())
+            .then(result => {
+
+                console.log(result);
+
+
+                let paisdos = result['data']['countryCode']
+                let ispdos = result['data']['isp']
+                let direcciondos = result['data']['ipAddress']
+                console.log(result.countryCode);
+                //imprimiendo usuario en pantalla
+
+                let dominiodos = document.getElementById('dominiodos');
+                dominiodos.innerHTML = 'pais: '+ paisdos;
+
+                let isp = document.getElementById('ispone');
+                isp.innerHTML = 'Dominio: ' + ispdos;
+
+                let direccionipdos = document.getElementById('ipdosxd');
+                direccionipdos.innerHTML = 'ip: ' + direcciondos;
+
+
+                  const b = document.createElement('p');
+  
+  
+                  b.innerHTML = '<h2>AbuseIP :</h2> <br><img src="assets/abuseipdb-logo.svg" width="50%" class="rounded mx-auto d-block" alt="">'
+
+  
+                  aplicacionuno.appendChild(b)
+  
+
+
+            })
+
+
+            .catch(error => console.log('error', error));
+
+
+    }
+
+
+    function alienfetch() {
+
+        let ipbusqueda = document.getElementById("ipsearch").value;
+
+
+        // const IPV4= document.getElementById('IP');
+        // let Ipv4 = "20.241.59.211";
+
+        const Link = `https://cors-anywhere.herokuapp.com/https://otx.alienvault.com/api/v1/indicators/IPv4/${ipbusqueda}/general`;
+        fetch(Link).then(response => response.json())
+            .then((json) => {
+                // let inform= document.getElementById('Info');
+                //inform.innerHTML = json.country_name;
+                console.log(json);
+
+
+                /*nuevo formato*/
+                  const c = document.createElement('p');
+
+                c.innerHTML = '<h2>otx :</h2> <br><img src="assets/otx.png" width="80%" class="rounded mx-auto d-block" alt="">'
+
+                                aplicaciondos.appendChild(c)
+                
+                
+
+
+                let dominio = document.getElementById('dominio');
+                dominio.innerHTML = 'pais: ' + json.country_name;
+
+                let puntage = document.getElementById('score');
+                puntage.innerHTML = 'ip: ' + json.indicator;
+
+                let tipoip = document.getElementById('tipoip');
+               // let pubpriv = (json['data']['base_indicator']['access_type']);
+
+    
+                let dominivn = document.getElementById('dominioatx');
+
+                dominivn.innerHTML = 'Dominio' + json.asn;
+
+            })
 
     }
 
