@@ -73,39 +73,55 @@
 
             <div class="col-md-12">
 
-                <div id="maluno"></div>
+              <!--  <div id="maluno"></div>-->
+                <div id="reptotal">
+
+                </div> <img src="" class="rounded mx-auto d-block" width="10%" style="margin: 20%;" alt="country" id="IMG">
             </div>
             <div class="col-md-4">
 
-                <div class="contenedorvirust"></div>
-                <div id="paisc"></div> <br> 
-                <div id="isponex"></div> <br>
-                <div id="ofus"></div>
-                
-                
-
-            </div>
-            <div class="col-md-4">
-                <div class="contenedorvirusdos"></div>
-                <div id="dominiodos"></div> <br>
-                <div id="ispone"></div>
-                <div id="ipdosxd"></div>
-              
-              
-
+                <div class="carta">
+                    <div class="contenedorvirust"></div>
+                    <div id="paisc"></div> <br>
+                    <div id="isponex"></div> <br>
+                    <div id="ofus"></div>
+                </div>
 
 
 
 
             </div>
+            <div class="col-md-4">
+
+                <div class="carta">
+                    <div class="contenedorvirusdos"></div>
+                    <div id="dominiodos"></div>  <br>
+                    <div id="ipdosxd"></div>
+                    <div id="ispone"></div>
+                    
+                </div>
+
+
+
+
+
+
+
+
+            </div>
 
             <div class="col-md-4">
-                <div class="contenedorvirustres"></div>
-                <div id="dominio"></div> <br>
+                <div class="carta">
+                    <div class="contenedorvirustres"></div>
+                    <div id="dominio"></div>  <br>
 
-                <div id="score"></div>
-                <div id="dominioatx"></div>
-                
+                    <div id="score"></div>
+                    <div id="dominioatx"></div>
+                    
+                    
+                </div>
+
+
             </div>
 
         </div>
@@ -229,7 +245,7 @@
                 //imprimiendo usuario en pantalla
 
 
-                 
+
                 let paism = document.getElementById('paisc');
                 paism.innerHTML = 'pais: ' + pais;
 
@@ -238,28 +254,28 @@
 
 
                 let esofu = document.getElementById('ofus');
-                esofu.innerHTML = 'IP: '+ es;
+                esofu.innerHTML = 'IP: ' + es;
 
                 let mal = document.getElementById('maluno');
 
-                mal.innerHTML = 'estatus: '+ maligno;
+                mal.innerHTML = 'estatus: ' + maligno;
 
 
 
-                
-                                const p = document.createElement('p');
-                
-                                p.innerHTML = '<h2>Virus total :</h2> <br><img src="assets/VirusTotal-nuevo-logo-2493322606.png" width="80%" class="rounded mx-auto d-block" alt="">'
-                
-                
-                
-                
-                
-                
-                
-                                aplicacion.appendChild(p)
-                
-                
+
+                const p = document.createElement('p');
+
+                p.innerHTML = '<h2>Virus total :</h2> <br><img src="assets/VirusTotal-nuevo-logo-2493322606.png" width="80%" class="rounded mx-auto d-block" alt="">'
+
+
+
+
+
+
+
+                aplicacion.appendChild(p)
+
+
 
 
             }).catch(error => console.log("error 1 en fetch" + error))
@@ -297,11 +313,12 @@
                 let paisdos = result['data']['countryCode']
                 let ispdos = result['data']['isp']
                 let direcciondos = result['data']['ipAddress']
+                let reportesabus = result['data']['totalReports']
                 console.log(result.countryCode);
                 //imprimiendo usuario en pantalla
 
                 let dominiodos = document.getElementById('dominiodos');
-                dominiodos.innerHTML = 'pais: '+ paisdos;
+                dominiodos.innerHTML = 'pais: ' + paisdos;
 
                 let isp = document.getElementById('ispone');
                 isp.innerHTML = 'Dominio: ' + ispdos;
@@ -309,15 +326,27 @@
                 let direccionipdos = document.getElementById('ipdosxd');
                 direccionipdos.innerHTML = 'ip: ' + direcciondos;
 
+                let reportestotales = document.getElementById('reptotal');
 
-                  const b = document.createElement('p');
-  
-  
-                  b.innerHTML = '<h2>AbuseIP :</h2> <br><img src="assets/abuseipdb-logo.svg" width="50%" class="rounded mx-auto d-block" alt="">'
 
-  
-                  aplicacionuno.appendChild(b)
-  
+                    if (reportesabus >=1 ) {
+                        reportestotales.innerHTML = 'Reportes totales: 🏴‍☠️ ' + reportesabus;
+                    }else{
+
+                       
+                        reportestotales.innerHTML = 'No hay reportes <span style="font-size:100px;">&#128513;</span>';
+
+
+                    }
+
+                const b = document.createElement('p');
+
+
+                b.innerHTML = '<h2>AbuseIP :</h2> <br><img src="assets/abuseipdb-logo.svg" width="50%" class="rounded mx-auto d-block" alt="">'
+
+
+                aplicacionuno.appendChild(b)
+
 
 
             })
@@ -346,13 +375,13 @@
 
 
                 /*nuevo formato*/
-                  const c = document.createElement('p');
+                const c = document.createElement('p');
 
                 c.innerHTML = '<h2>otx :</h2> <br><img src="assets/otx.png" width="80%" class="rounded mx-auto d-block" alt="">'
 
-                                aplicaciondos.appendChild(c)
-                
-                
+                aplicaciondos.appendChild(c)
+
+
 
 
                 let dominio = document.getElementById('dominio');
@@ -362,12 +391,18 @@
                 puntage.innerHTML = 'ip: ' + json.indicator;
 
                 let tipoip = document.getElementById('tipoip');
-               // let pubpriv = (json['data']['base_indicator']['access_type']);
+                // let pubpriv = (json['data']['base_indicator']['access_type']);
 
-    
+
                 let dominivn = document.getElementById('dominioatx');
 
                 dominivn.innerHTML = 'Dominio' + json.asn;
+
+              
+
+                const fot =document.getElementById('IMG');
+
+        fot.src= "https://otx.alienvault.com" + json.flag_url;
 
             })
 
