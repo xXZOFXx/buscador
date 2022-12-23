@@ -1,0 +1,74 @@
+
+
+body{
+
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.masthead {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url('../assets/nasa-Q1p7bh3SHj8-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+  }
+
+
+  .degradado{
+
+
+    background-color: rgba(0, 0, 0, 0.322);
+    height: 100vh;
+    min-height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+
+  }
+
+  
+
+.titulo{
+
+    text-align: center;
+
+}
+
+.texto-exp{
+
+    text-align: center;
+
+}
+
+.imagen-nasa{
+
+    text-align: center;
+    align-items: center;
+
+}
+
+
+.card-body{
+
+
+    color: black!important;
+
+}
+
+.texto-exp{
+
+
+    color: black!important;
+
+}
+
+.Respuesta{
+
+margin-top: 10%;
+margin-bottom: 10%;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>test pitero</h3>
+    
+</body>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+
+
+const options = {
+  method: 'GET',
+  url: 'https://www.virustotal.com/api/v3/ip_addresses/110.185.185.228',
+  headers: {
+    accept: 'application/json',
+    'x-apikey': 'd885a9806fb9a028c5cc0d85624b0c140cba58a0fff7227a986d6d2dee8237a9 '
+  }
+};
+
+axios
+  .request(options)
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
+
+</script>
+</html>
